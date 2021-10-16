@@ -84,7 +84,7 @@ public class GeneratedTests extends TestBase {
 
         switchTo().window(1);
 
-        step("Проверить что открышийся таб содержит нужное название", () -> {
+        step("Check if opened tab has correct title", () -> {
             String expectedTitle = "Яндекс.Маркет — покупки с быстрой доставкой";
             String actualTitle = title();
             assertThat(actualTitle).isEqualTo(expectedTitle);
