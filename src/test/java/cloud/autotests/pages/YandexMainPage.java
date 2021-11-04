@@ -27,7 +27,7 @@ public class YandexMainPage {
         return this;
     }
 
-    @Step("Check if {tabName} tab has correct title")
+    @Step("Check if tab has correct title")
     public YandexMainPage checkTitle(String expectedTitle) {
         String actualTitle = title();
         assertThat(actualTitle).isEqualTo(expectedTitle);
