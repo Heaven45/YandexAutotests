@@ -16,6 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class GeneratedTests extends TestBase {
 
+    // TODO Вынести работу с календарём в отдельный хелпер
     String[] months = {"января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября",
             "октября", "ноября", "декабря"};
 
