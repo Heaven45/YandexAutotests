@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-public class GeneratedTests extends TestBase {
+public class MainPageTests extends TestBase {
 
     YandexMainPage mainPage = new YandexMainPage();
 
