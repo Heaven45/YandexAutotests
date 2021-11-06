@@ -34,6 +34,7 @@ public class MainPageTests extends TestBase {
     void pageTest(String tabName, String expectedTitle) {
         mainPage.openPage()
                 .openTab(tabName)
+                .switchToOpenedTab()
                 .checkTitle(expectedTitle);
     }
 
@@ -42,5 +43,20 @@ public class MainPageTests extends TestBase {
     void checkIfTimeIsCorrect() {
         mainPage.openPage()
                 .checkDateAndTime();
+    }
+
+    @Test
+    @DisplayName("Set home button is present")
+    void checkIfSetHomeButtonIsPresent() {
+        mainPage.openPage()
+                .checkSetHome();
+    }
+
+    @Test
+    @DisplayName("Open mail login page")
+    void openMailLoginPage() {
+        mainPage.openPage()
+                .clickLoginButton()
+                .assertYandexPassportPageIsOpened();
     }
 }

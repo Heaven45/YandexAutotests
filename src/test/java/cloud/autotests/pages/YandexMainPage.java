@@ -4,6 +4,9 @@ import cloud.autotests.helpers.DateTimeHelper;
 import cloud.autotests.helpers.DriverUtils;
 import io.qameta.allure.Step;
 
+import static com.codeborne.selenide.Condition.exist;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -23,6 +26,11 @@ public class YandexMainPage {
     @Step("Open tab {tabName}")
     public YandexMainPage openTab(String tabName) {
         $("[data-id='" + tabName + "']").click();
+        return this;
+    }
+
+    @Step("Switch to opened tab")
+    public YandexMainPage switchToOpenedTab() {
         switchTo().window(1);
         return this;
     }
@@ -49,6 +57,24 @@ public class YandexMainPage {
         String errorText = "SEVERE";
 
         assertThat(consoleLogs).doesNotContain(errorText);
+        return this;
+    }
+
+    @Step("Check if set home button is present")
+    public YandexMainPage checkSetHome() {
+        $(".b-sethome").$(withText("Сделать стартовой")).shouldBe(visible);
+        return this;
+    }
+
+    @Step("Click on 'login' button")
+    public YandexMainPage clickLoginButton() {
+        $(".desk-notif-card__login-new-item-title").click();
+        return this;
+    }
+
+    @Step("Check yandex pasport title")
+    public YandexMainPage assertYandexPassportPageIsOpened() {
+        $(".passp-auth-content").should(exist);
         return this;
     }
 }
